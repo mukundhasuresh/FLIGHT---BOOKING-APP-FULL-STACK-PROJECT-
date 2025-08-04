@@ -1,0 +1,39 @@
+.dashboard-page {
+  max-width: 1000px;
+  margin: 120px auto 40px; 
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.dashboard-page h2 {
+  font-family: 'Anton', sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #003366;
+}
+
+.booking-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.booking-card {
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+
+@media (max-width: 768px) {
+  .dashboard-page h2 {
+    font-size: 2rem;
+  }
+
+  .booking-card {
+    padding: 1rem;
+  }
+}
