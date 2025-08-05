@@ -6,13 +6,16 @@ const Dashboard = () => {
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Simulated userId (replace with real auth logic if needed)
+
+  const backendURL = import.meta.env.VITE_BACKEND_URL;
+
+
   const userId = 'guest';
 
   useEffect(() => {
     const fetchBookings = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/bookings/${userId}`);
+        const res = await axios.get(`${backendURL}/api/bookings/${userId}`);
         setBookings(res.data);
       } catch (err) {
         console.error('Error fetching bookings:', err.message);
@@ -23,7 +26,7 @@ const Dashboard = () => {
     };
 
     fetchBookings();
-  }, []);
+  }, [backendURL]); 
 
   return (
     <div className="dashboard-page">

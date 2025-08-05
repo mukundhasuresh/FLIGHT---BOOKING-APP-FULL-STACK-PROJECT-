@@ -1,11 +1,14 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import './Auth.css';  
+import './Auth.css';
 
 const Register = () => {
   const [formData, setFormData] = useState({ name: '', email: '', password: '' });
   const navigate = useNavigate();
+
+  // ✅ Read backend URL from .env
+  const backendURL = import.meta.env.VITE_BACKEND_URL;
 
   const handleChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -14,7 +17,7 @@ const Register = () => {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/register', formData);
+      const res = await axios.post(`${backendURL}/api/auth/register`, formData);
       localStorage.setItem('token', res.data.token);  // Save token (optional)
       alert('Registration successful!');
       navigate('/dashboard');

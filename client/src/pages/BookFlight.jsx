@@ -13,6 +13,9 @@ const BookFlight = () => {
   const [passport, setPassport] = useState('');
   const [email, setEmail] = useState('');
 
+  
+  const backendURL = import.meta.env.VITE_BACKEND_URL;
+
   if (!flight) {
     return <p className="no-flight-msg">No flight selected for booking.</p>;
   }
@@ -21,7 +24,7 @@ const BookFlight = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:5000/api/bookings', {
+      const response = await axios.post(`${backendURL}/api/bookings`, {
         name,
         passport,
         email,

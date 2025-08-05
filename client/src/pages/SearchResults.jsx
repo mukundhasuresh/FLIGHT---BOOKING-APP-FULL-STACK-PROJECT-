@@ -2,9 +2,11 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
+const backendURL = import.meta.env.VITE_BACKEND_URL;  
+
 const SearchResults = () => {
   const location = useLocation();
-  const navigate = useNavigate();  // Added
+  const navigate = useNavigate();
   const [flights, setFlights] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -19,7 +21,7 @@ const SearchResults = () => {
       setLoading(true);
       setError(null);
       try {
-        const response = await axios.get('http://localhost:5000/api/flights', {
+        const response = await axios.get(`${backendURL}/api/flights`, {
           params: { from, to, date },
         });
         const allFlights = response.data.data || [];
