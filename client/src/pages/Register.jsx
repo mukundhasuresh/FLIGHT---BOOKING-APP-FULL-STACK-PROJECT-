@@ -7,22 +7,23 @@ const Register = () => {
   const [formData, setFormData] = useState({ name: '', email: '', password: '' });
   const navigate = useNavigate();
 
-  // ✅ Read backend URL from .env
+ 
   const backendURL = import.meta.env.VITE_BACKEND_URL;
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+    
       const res = await axios.post(`${backendURL}/api/auth/register`, formData);
-      localStorage.setItem('token', res.data.token);  // Save token (optional)
       alert('Registration successful!');
       navigate('/dashboard');
     } catch (err) {
       alert(err.response?.data?.msg || 'Registration failed');
+      console.error('Registration error:', err.message);
     }
   };
 
