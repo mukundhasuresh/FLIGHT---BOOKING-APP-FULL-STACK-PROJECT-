@@ -6,7 +6,7 @@ A responsive full-stack web application for real-time flight search and booking.
 
 ## 🎥 Demo Video
 > 📺 Watch a quick demo of the app:  
-> [![Watch Demo](https://img.youtube.com/vi/YOUR_VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)  
+> [![Watch Demo]](https://youtu.be/5SRXU4f9ycU)  
 
 ---
 
